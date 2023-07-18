@@ -28,8 +28,8 @@
         }
 
         .chartCard {
-            width: 100vh;
-            /* height: calc(100vh - 40px); */
+            width: 100vw;
+            height: calc(100vh - 40px);
             /* margin-top: 30p; */
             /* background: rgba(54, 162, 235, 0.2); */
             display: flex;
@@ -60,7 +60,8 @@
             width: 50%;
         }
 
-        .input input {
+        .input input,
+        select {
             width: 50%;
             margin-top: 5px;
             padding: 8px;
@@ -71,6 +72,19 @@
         .input input[type=submit] {
             background-color: rgba(54, 162, 235, 1);
             border: none;
+        }
+
+        .aggreg {
+            display: none;
+        }
+
+        .aggreg p {
+            margin: 10px 5px;
+            /* margin-right: 20px; */
+        }
+
+        .aggreg span {
+            color: rgb(4, 102, 102);
         }
 
         @media screen and (max-width:920px) {
@@ -92,6 +106,12 @@
     <div class="bg">
         <div class="input">
             <input type="text" id="title" placeholder="Enter the Title">
+            <!-- <input type="number" id="value7" placeholder="Sunday"> -->
+            <select name="cahrts" id="chartlist">
+                <option value="bar">Bar Chart</option>
+                <option value="line">Line Chart</option>
+                <option value="pie">Pie Chart</option>
+            </select>
             <input type="number" id="value1" placeholder="Monday">
             <input type="number" id="value2" placeholder="Tuesday">
             <input type="number" id="value3" placeholder="Wednesday">
@@ -104,6 +124,13 @@
         <div class="chartCard">
             <div class="chartBox">
                 <canvas id="myChart"></canvas>
+                <div class="aggreg" id="agg">
+                    <p>Mean : <span id="mean"></span></p>
+                    <p>Median : <span id="median"></span></p>
+                    <p>Sum : <span id="sum"></span></p>
+                    <p>Min : <span id="min"></span></p>
+                    <p>Max : <span id="max"></span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -163,6 +190,7 @@
         // }
         function update() {
             const title = document.getElementById('title');
+            const chartlist = document.getElementById('chartlist');
             const bar1 = document.getElementById('value1');
             const bar2 = document.getElementById('value2');
             const bar3 = document.getElementById('value3');
@@ -170,9 +198,17 @@
             const bar5 = document.getElementById('value5');
             const bar6 = document.getElementById('value6');
             const bar7 = document.getElementById('value7');
-            myChart.data.datasets[0].data.push(bar1.value, bar2.value, bar3.value, bar4.value, bar5.value, bar6.value, bar7.value,)
+            // const mean = document.getElementById('mean');
+            // const meidan = document.getElementById('median');
+            // let sum = document.getElementById('sum');
+            // const min = document.getElementById('min');
+            // const max = document.getElementById('max');
+            myChart.data.datasets[0].data.push(bar1.value, bar2.value, bar3.value, bar4.value, bar5.value, bar6.value, bar7.value,);
             myChart.data.datasets[0].label = title.value;
+            myChart.config.type = chartlist.value;
+            document.getElementById("agg").style.display = "flex";
             myChart.update();
+            console.log(data.datasets[0].data);
             console.log(bar1.value);
             console.log(bar2.value);
             console.log(bar3.value);
@@ -181,10 +217,63 @@
             console.log(bar6.value);
             console.log(bar7.value);
             console.log(title.value);
+            console.log(chartlist.value);
+            console.log(sum);
+
+
+            document.getElementById('min').innerHTML = findMin(data.datasets[0].data);
+            function findMin(arr) {
+                let min = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < min) {
+                        min = arr[i];
+                    }
+                }
+                return min;
+            }
+
+            document.getElementById('max').innerHTML = findMax(data.datasets[0].data);
+            function findMax(arr) {
+                let max = arr[0];
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] > max) {
+                        max = arr[i];
+                    }
+                }
+                return max;
+            }
+
+            document.getElementById('mean').innerHTML = findMean(data.datasets[0].data);
+            function findMean(arr) {
+                const sum = arr.reduce((acc, curr) => acc + curr, 0);
+                return sum / arr.length;
+            }
+
+            document.getElementById('median').innerHTML = findMedian(data.datasets[0].data);
+            function findMedian(arr) {
+                const sortedArr = arr.slice().sort((a, b) => a - b);
+                const mid = Math.floor(sortedArr.length / 2);
+
+                if (sortedArr.length % 2 === 0) {
+                    return (sortedArr[mid - 1] + sortedArr[mid]) / 2;
+                } else {
+                    return sortedArr[mid];
+                }
+            }
+
+            document.getElementById('sum').innerHTML = findSum(data.datasets[0].data);
+            function findSum(arr) {
+                let sum = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    const num = parseInt(arr[i], 10);
+                    if (!isNaN(num)) {
+                        sum += num;
+                    }
+                }
+                return sum;
+            }
         }
-        // Instantly assign Chart.js version
-        const chartVersion = document.getElementById('chartVersion');
-        chartVersion.innerText = Chart.version;
+
     </script>
     </style>
 </body>
