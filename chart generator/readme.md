@@ -2,23 +2,31 @@
 
 ## Description
 
-The Chart Generator is a simple web application that allows users to create customized bar charts based on their input data. This tool is designed to be user-friendly, enabling individuals without programming knowledge to visualize their data in a visually appealing and informative manner.
+The Chart Generator is a simple web application that allows users to create customizable bar charts based on their input data. This application uses Chart.js, a popular charting library, to render the bar charts. Users can input data for each day of the week, and the application will generate a bar chart representing the weekly sales. The bar chart's appearance can be customized with a title and different colors for each day of the week.
 
-![Sample Bar Chart]()
-
-## Features
-
-- Easy data input: Users can simply enter their data values and labels through a user-friendly interface.
-- Responsive design: The application adapts to various screen sizes, ensuring a seamless user experience across devices.
-- Real-time preview: Users can see a live preview of the bar chart as they input or modify data, facilitating quick adjustments.
+![Sample Bar Chart](link_to_sample_chart_image)
 
 ## How to Use
 
-1. **Input Data**: Open the application and find a form to enter your data. The data can be numeric values and corresponding labels for each bar.
+1. **Enter Data**: Open the application in your web browser. You will see a form with input fields for the chart's title and the sales data for each day of the week (Monday to Sunday).
 
-2. **Preview**: As you input data and make customizations, the chart preview will be updated in real-time, allowing you to see how the chart looks.
+2. **Customize Chart**: After inputting the data, you can click the "Update" button to generate the bar chart. The chart will be displayed below the form with the specified title and colors for each day.
 
-4. **Generate Chart**: Once you are satisfied with the chart's appearance, click the "Generate Chart" button to create the final version.
+3. **Real-Time Preview**: As you update the data and click the "Update" button, the bar chart will be dynamically updated to reflect the changes.
+
+## Requirements
+
+- Modern web browser that supports HTML5 and JavaScript.
+
+## How to Run
+
+1. Clone the code
+   
+2. Open the `chart.html` file in your web browser.
+
+3. Use the form to enter the chart's title and the sales data for each day of the week.
+
+4. Click the "Update" button to generate the bar chart.
 
 ## Contributing
 
@@ -32,10 +40,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-Special thanks to the creators and contributors of the libraries and frameworks used in this project.
-
-If applicable, mention any other resources, inspirations, or acknowledgments for the chart design or algorithm used.
+Special thanks to [Chart.js](https://www.chartjs.org/) for providing the charting library used in this project.
 
 ---
 
-Thank you for using the Chart Generator! We hope this tool helps you create beautiful and informative bar charts effortlessly. If you have any feedback or questions, please don't hesitate to reach out to us. Happy charting! 📊
+Thank you for using the Chart Generator! We hope this tool helps you create informative bar charts effortlessly. If you have any feedback or questions, please don't hesitate to reach out to us. Happy charting! 📊
+
+
