@@ -183,11 +183,7 @@
             document.getElementById('myChart'),
             config
         );
-        // function updateChart(barvalue1){
-        //     console.log(barvalue1.value);
-        //     myChart.config.data.datasets[0].data.push(barvalue1.value);
-        //     myChart.update();
-        // }
+        
         function update() {
             const title = document.getElementById('title');
             const chartlist = document.getElementById('chartlist');
@@ -198,28 +194,11 @@
             const bar5 = document.getElementById('value5');
             const bar6 = document.getElementById('value6');
             const bar7 = document.getElementById('value7');
-            // const mean = document.getElementById('mean');
-            // const meidan = document.getElementById('median');
-            // let sum = document.getElementById('sum');
-            // const min = document.getElementById('min');
-            // const max = document.getElementById('max');
             myChart.data.datasets[0].data.push(bar1.value, bar2.value, bar3.value, bar4.value, bar5.value, bar6.value, bar7.value,);
             myChart.data.datasets[0].label = title.value;
             myChart.config.type = chartlist.value;
             document.getElementById("agg").style.display = "flex";
             myChart.update();
-            console.log(data.datasets[0].data);
-            console.log(bar1.value);
-            console.log(bar2.value);
-            console.log(bar3.value);
-            console.log(bar4.value);
-            console.log(bar5.value);
-            console.log(bar6.value);
-            console.log(bar7.value);
-            console.log(title.value);
-            console.log(chartlist.value);
-            console.log(sum);
-
 
             document.getElementById('min').innerHTML = findMin(data.datasets[0].data);
             function findMin(arr) {
@@ -245,7 +224,13 @@
 
             document.getElementById('mean').innerHTML = findMean(data.datasets[0].data);
             function findMean(arr) {
-                const sum = arr.reduce((acc, curr) => acc + curr, 0);
+                let sum = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    const num = parseInt(arr[i], 10);
+                    if (!isNaN(num)) {
+                        sum += num;
+                    }
+                }
                 return sum / arr.length;
             }
 
