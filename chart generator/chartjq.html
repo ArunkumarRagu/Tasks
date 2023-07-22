@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chart Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+
+    }
+
+    .chartMenu {
+      width: 100vw;
+      height: 40px;
+      background: #1A1A1A;
+      color: rgba(54, 162, 235, 1);
+      text-align: center;
+    }
+
+    .chartMenu p {
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    .chartCard {
+      width: 100vw;
+      height: calc(100vh - 40px);
+      /* margin-top: 30p; */
+      /* background: rgba(54, 162, 235, 0.2); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chartBox {
+      width: 700px;
+      padding: 20px;
+      border-radius: 20px;
+      border: solid 3px rgba(54, 162, 235, 1);
+      background: white;
+    }
+
+    .bg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: rgba(54, 162, 235, 0.2);
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+    }
+
+    .input input,
+    select {
+      width: 50%;
+      margin-top: 5px;
+      padding: 8px;
+      border-radius: 15px;
+      border: 2px solid #222;
+    }
+
+    .input input[type=submit] {
+      background-color: rgba(54, 162, 235, 1);
+      border: none;
+    }
+
+    .aggreg {
+      display: none;
+    }
+
+    .aggreg p {
+      margin: 10px 5px;
+      /* margin-right: 20px; */
+    }
+
+    .aggreg span {
+      color: rgb(4, 102, 102);
+    }
+
+    @media screen and (max-width:920px) {
+      .bg {
+        flex-direction: column;
+      }
+
+      .chartCard {
+        margin-top: 100px;
+      }
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="chartMenu">
+    <p>Chart Generator</p>
+  </div>
+  <div class="bg">
+    <div class="input">
+      <input type="text" id="title" placeholder="Enter the Title">
+      <select name="charts" id="chartlist">
+        <option value="bar">Bar Chart</option>
+        <option value="line">Line Chart</option>
+        <option value="pie">Pie Chart</option>
+        <option value="bubble">Bubble Chart</option>
+        <option value="radar">Radar Chart</option>
+      </select>
+      <input type="number" id="value1" placeholder="Monday">
+      <input type="number" id="value2" placeholder="Tuesday">
+      <input type="number" id="value3" placeholder="Wednesday">
+      <input type="number" id="value4" placeholder="Thursday">
+      <input type="number" id="value5" placeholder="Friday">
+      <input type="number" id="value6" placeholder="Saturday">
+      <input type="number" id="value7" placeholder="Sunday">
+      <input type="submit" id="submit" value="Update">
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+        <div class="aggreg" id="agg">
+          <p>Mean : <span id="mean"></span></p>
+          <p>Median : <span id="median"></span></p>
+          <p>Sum : <span id="sum"></span></p>
+          <p>Min : <span id="min"></span></p>
+          <p>Max : <span id="max"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+  <script>
+    // setup 
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+
+    $(document).ready(function () {
+      $('#submit').click(function () {
+        const value1 = $("#value1").val();
+        const value2 = $("#value2").val();
+        const value3 = $("#value3").val();
+        const value4 = $("#value4").val();
+        const value5 = $("#value5").val();
+        const value6 = $("#value6").val();
+        const value7 = $("#value7").val();
+        const arr = myChart.data.datasets[0];
+
+        $.merge(arr.data, [value1, value2, value3, value4, value5, value6, value7]);
+        arr.label = $("#title").val();
+        config.type = $("#chartlist").val();
+        $("#agg").css({
+          "display": "flex"
+        });
+        myChart.update();
+        console.log(arr.data)
+
+        $('#min').html(findMin(arr.data));
+
+        function findMin(arr) {
+          let min = arr[0];
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < arr[0]) {
+              min = arr[i];
+            }
+          }
+          return min;
+        }
+
+        $("#max").html(findMax(arr.data));
+        function findMax(arr) {
+          let max = arr[0];
+          for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+              max = arr[i];
+            }
+          }
+          return max;
+        }
+
+        $("#sum").html(findSum(arr.data));
+
+        function findSum(arr) {
+          let sum = 0;
+          for (let i = 0; i < arr.length; i++) {
+            const num = parseInt(arr[i], 10);
+            if (!isNaN(num)) {
+              sum += num;
+            }
+          }
+          return sum;
+        }
+
+        $("#mean").html(findMedian(arr.data));
+
+        function findMedian(arr) {
+          let sum = 0;
+          for (let i = 0; i < arr.length; i++) {
+            const num = parseInt(arr[i], 10);
+            if (!isNaN(num)) {
+              sum += num;
+            }
+          }
+          return sum / arr.length;
+        }
+
+        $("#median").html(findMedian(arr.data));
+
+        function findMedian(arr) {
+          const sortedArr = arr.slice().sort((a, b) => a - b);
+          const mid = Math.floor(sortedArr.length / 2);
+
+          if (sortedArr.length % 2 === 0) {
+            return (sortedArr[mid - 1] + sortedArr[mid]) / 2;
+          } else {
+            return sortedArr[mid];
+          }
+        }
+
+
+        $("#agg").css({
+          "display": "flex"
+        });
+
+
+      });
+    });
+
+
+
+  </script>
+  </style>
+</body>
+
+</html>
