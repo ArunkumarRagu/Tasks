@@ -1,49 +1,56 @@
-# Chart Generator - Bar Chart
+# Chart Generator Web Application
 
-## Description
+The Chart Generator is a web application that allows users to create various types of charts, such as Bar Chart, Line Chart, Pie Chart, Bubble Chart, and Radar Chart, based on the input values provided by the user. The application uses the Chart.js library to render the charts dynamically on the web page.
 
-The Chart Generator is a simple web application that allows users to create customizable bar charts based on their input data. This application uses Chart.js, a popular charting library, to render the bar charts. Users can input data for each day of the week, and the application will generate a bar chart representing the weekly sales. The bar chart's appearance can be customized with a title and different colors for each day of the week.
+## Features
 
-![Sample Bar Chart](link_to_sample_chart_image)
+- User can enter a title for the chart.
+- User can select the type of chart they want to generate from a dropdown list.
+- User can enter numerical values for each day of the week (Monday to Sunday).
+- User can click the "Update" button to generate the chart with the provided data.
+- The generated chart will display the weekly sales data based on the user's input.
 
-## How to Use
+## Getting Started
 
-1. **Enter Data**: Open the application in your web browser. You will see a form with input fields for the chart's title and the sales data for each day of the week (Monday to Sunday).
+To run the Chart Generator web application, follow these steps:
 
-2. **Customize Chart**: After inputting the data, you can click the "Update" button to generate the bar chart. The chart will be displayed below the form with the specified title and colors for each day.
+1. Clone the repository to your local machine.
 
-3. **Real-Time Preview**: As you update the data and click the "Update" button, the bar chart will be dynamically updated to reflect the changes.
+```bash
+https://github.com/ArunkumarRagu/Tasks.git
+```
 
-## Requirements
-
-- Modern web browser that supports HTML5 and JavaScript.
-
-## How to Run
-
-1. Clone the code
-   
 2. Open the `chart.html` file in your web browser.
 
-3. Use the form to enter the chart's title and the sales data for each day of the week.
+## Usage
 
-4. Click the "Update" button to generate the bar chart.
+1. Enter the title for the chart in the "Enter the Title" input field.
+2. Select the type of chart you want to generate from the dropdown list.
+3. Enter numerical values for each day of the week (Monday to Sunday) in the respective input fields.
+4. Click the "Update" button to generate the chart with the provided data.
+5. The chart will be displayed on the page along with the following aggregated information:
+   - Mean: The average of the provided data values.
+   - Median: The middle value of the sorted data.
+   - Sum: The total sum of all the data values.
+   - Min: The minimum value from the provided data.
+   - Max: The maximum value from the provided data.
 
-## Contributing
+## Technologies Used
 
-Contributions to this Chart Generator project are welcome! If you find any issues or have ideas to enhance the application, feel free to open an issue or submit a pull request.
+- HTML
+- CSS
+- JavaScript
+- Chart.js (for chart rendering)
 
-Before contributing, please review the [Contributing Guidelines](CONTRIBUTING.md).
+## Screenshots
+
+![Chart Generator](https://github.com/ArunkumarRagu/Tasks/assets/101445700/f08d745b-7125-43c9-8656-09badaf13ec2)
+![Chart Generator](https://github.com/ArunkumarRagu/Tasks/assets/101445700/d87d789a-5554-473c-9fa7-ba9f7bcf2c94)
+
+## Contributions
+
+Contributions to the Chart Generator web application are welcome. If you find any bugs, have suggestions, or want to add new features, feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-Special thanks to [Chart.js](https://www.chartjs.org/) for providing the charting library used in this project.
-
----
-
-Thank you for using the Chart Generator! We hope this tool helps you create informative bar charts effortlessly. If you have any feedback or questions, please don't hesitate to reach out to us. Happy charting! 📊
-
-
+The Chart Generator web application is open-source and available under the [MIT License](./LICENSE). Feel free to use, modify, and distribute the code as per the terms of the license.
