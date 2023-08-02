@@ -1,0 +1,114 @@
+<h2>Registration Form</h2>
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <%= form_with(model: @address, url: address_path, local: true) do |f| %>
+      <div class="formbold-steps">
+        <ul>
+          <li class="formbold-step-menu1 ">
+            <span>1</span>
+            Personal
+          </li>
+          <li class="formbold-step-menu2 active">
+            <span>2</span>
+            Address
+          </li>
+          <li class="formbold-step-menu3">
+            <span>3</span>
+            Official
+          </li>
+        </ul>
+      </div>
+
+      <div class="formbold-form-step-2 active">
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :door_number, class: "formbold-form-label" %>
+            <%= f.text_field :door_number, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :floor_number, class: "formbold-form-label" %>
+            <%= f.text_field :floor_number, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :building_name, class: "formbold-form-label" %>
+            <%= f.text_field :building_name, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :street_name, class: "formbold-form-label" %>
+            <%= f.text_field :street_name, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :area, class: "formbold-form-label" %>
+            <%= f.text_field :area, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :village, class: "formbold-form-label" %>
+            <%= f.text_field :village, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :town, class: "formbold-form-label" %>
+            <%= f.text_field :town, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :city, class: "formbold-form-label" %>
+            <%= f.text_field :city, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :pincode, class: "formbold-form-label" %>
+            <%= f.text_field :pincode, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :landmark, class: "formbold-form-label" %>
+            <%= f.text_field :landmark, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :district, class: "formbold-form-label" %>
+            <%= f.text_field :district, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :state, class: "formbold-form-label" %>
+            <%= f.text_field :state, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :country, class: "formbold-form-label" %>
+            <%= f.text_field :country, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :address_type, class: "formbold-form-label" %>
+            <div class="formbold-radio-flex">
+              <%= f.radio_button :address_type, 'residential' %>
+              <%= f.label :residential, "Residential" %>
+            </div>
+            <div class="formbold-radio-flex">
+              <%= f.radio_button :address_type, 'business' %>
+              <%= f.label :business, "Business" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="formbold-form-btn-wrapper">
+          <%= button_tag "Back", class: "formbold-back-btn" %>
+          <%= f.submit "Next", class: "formbold-btn", id: 'next_btn' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

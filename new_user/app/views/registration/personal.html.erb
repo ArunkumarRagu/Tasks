@@ -1,0 +1,201 @@
+<h2>Registration Form</h2>
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <%= form_with(model: @personal, url: personal_path, local: true) do |f| %>
+      <div class="formbold-steps">
+        <ul>
+          <li class="formbold-step-menu1 active">
+            <span>1</span>
+            Personal
+          </li>
+          <li class="formbold-step-menu2">
+            <span>2</span>
+            Address
+          </li>
+          <li class="formbold-step-menu3">
+            <span>3</span>
+            Official
+          </li>
+        </ul>
+      </div>
+
+      <div class="formbold-form-step-1 active">
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :firstname, class: "formbold-form-label" %>
+            <%= f.text_field :firstname, placeholder: "Andrio", class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :lastname, class: "formbold-form-label" %>
+            <%= f.text_field :lastname, placeholder: "Dolee", class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :email, class: "formbold-form-label" %>
+            <%= f.email_field :email, placeholder: "example@mail.com", class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone, class: "formbold-form-label" %>
+            <%= f.text_field :phone, placeholder: "123-456-7890", class: "formbold-form-input" %>
+              <%# <% if @personal.errors[:phone].any? %>
+                <div class="error">
+                  <%= @personal.errors[:phone].first %>
+                </div>
+              <% end %> 
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :dob, class: "formbold-form-label" %>
+            <%= f.date_field :dob, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :tenth_mark, class: "formbold-form-label" %>
+            <%= f.text_field :tenth_mark, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :twelfth_mark, class: "formbold-form-label" %>
+            <%= f.text_field :twelfth_mark, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :school_name, class: "formbold-form-label" %>
+            <%= f.text_field :school_name, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :college_degree, class: "formbold-form-label" %>
+            <%= f.text_field :college_degree, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :college_name, class: "formbold-form-label" %>
+            <%= f.text_field :college_name, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :cgpa, class: "formbold-form-label" %>
+            <%= f.number_field :cgpa, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :father_name, class: "formbold-form-label" %>
+            <%= f.text_field :father_name, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :mother_name, class: "formbold-form-label" %>
+            <%= f.text_field :mother_name, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :father_mobile, class: "formbold-form-label" %>
+            <%= f.text_field :father_mobile, placeholder: "123-456-7890", class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :mother_mobile, class: "formbold-form-label" %>
+            <%= f.text_field :mother_mobile, placeholder: "123-456-7890", class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :caste, class: "formbold-form-label" %>
+            <%= f.text_field :caste, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :religion, class: "formbold-form-label" %>
+            <%= f.text_field :religion, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :username, class: "formbold-form-label" %>
+            <%= f.text_field :username, class: "formbold-form-input" %>
+          <%# <% if @personal.errors[:username].any? %>
+            <div class="error">
+                <%= @personal.errors.full_messages_for(:username).first %>
+              </div>
+          <% end %> %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :password, class: "formbold-form-label" %>
+            <%= f.password_field :password, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :marital_status, class: "formbold-form-label" %>
+           <%= f.select :marital_status, ['Single', 'Married', 'Divorced', 'Widowed'], {}, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :instagram_acc, class: "formbold-form-label" %>
+            <%= f.text_field :instagram_acc, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :twitter_acc, class: "formbold-form-label" %>
+            <%= f.text_field :twitter_acc, class: "formbold-form-input" %>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :facebook_acc, class: "formbold-form-label" %>
+            <%= f.text_field :facebook_acc, class: "formbold-form-input" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :gender, class: "formbold-form-label" %>
+            <div class="formbold-radio-flex">
+              <%= f.radio_button :gender, 'male' %>
+              <%= f.label :male, "Male" %>
+            </div>
+            <div class="formbold-radio-flex">
+              <%= f.radio_button :gender, 'female' %>
+              <%= f.label :female, "Female" %>
+            </div>
+            <div class="formbold-radio-flex">
+              <%= f.radio_button :gender, 'other' %>
+              <%= f.label :other, "Other" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div class="form-group">
+            <%= f.label :community, class: "formbold-form-label" %>
+            <div class="formbold-checkbox-flex">
+              <%= f.check_box :community %>
+              <%= f.label :community1, "Community 1" %>
+            </div>
+            <div class="formbold-checkbox-flex">
+              <%= f.check_box :community %>
+              <%= f.label :community2, "Community 2" %>
+            </div>
+            <div class="formbold-checkbox-flex">
+              <%= f.check_box :community%>
+              <%= f.label :community3, "Community 3" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="formbold-form-btn-wrapper">
+          <%= button_tag "", class: "formbold-back-btn" %>
+        <%= f.submit "Next", class: "formbold-btn", id: 'next_btn' %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

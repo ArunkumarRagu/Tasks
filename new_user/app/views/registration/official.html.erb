@@ -1,0 +1,135 @@
+<h2>Registration Form</h2>
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <%= form_with(model: @official,url: official_path, local: true) do |f| %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="formbold-steps">
+        <ul>
+          <li class="formbold-step-menu1 ">
+            <span>1</span>
+            Personal
+          </li>
+          <li class="formbold-step-menu2 ">
+            <span>2</span>
+            Address
+          </li>
+          <li class="formbold-step-menu3 active">
+            <span>3</span>
+            Official
+          </li> 
+        </ul>
+      </div>
+      <div class="formbold-form-step-3 active">
+        <div class="formbold-form-confirm">
+          <p>
+            <%# ÷Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. %>
+          </p>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :company, class: "formbold-form-label" %>
+              <%= f.text_field :company, placeholder: "Enter company", class: "formbold-form-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :role, class: "formbold-form-label" %>
+              <%= f.text_field :role, placeholder: "Enter role", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :employee_id, class: "formbold-form-label" %>
+              <%= f.text_field :employee_id, placeholder: "Enter employee ID", class: "formbold-form-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :employee_mail, class: "formbold-form-label" %>
+              <%= f.email_field :employee_mail, placeholder: "Enter employee mail ID", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :laptop_serial, class: "formbold-form-label" %>
+              <%= f.text_field :laptop_serial, placeholder: "Enter laptop serial", class: "formbold-form-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :laptop_model, class: "formbold-form-label" %>
+              <%= f.text_field :laptop_model, placeholder: "Enter laptop model", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :laptop_brand, class: "formbold-form-label" %>
+              <%= f.text_field :laptop_brand, placeholder: "Enter laptop brand", class: "formbold-form-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :laptop_mac, class: "formbold-form-label" %>
+              <%= f.text_field :laptop_mac, placeholder: "Enter laptop MAC address", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :hoodies, class: "formbold-form-label" %>
+              <div class="formbold-checkbox-flex">
+                <%= f.check_box :waterbottle %>
+                <%= f.label :waterbottle, "Water Bottle" %>
+              </div>
+              <div class="formbold-checkbox-flex">
+                <%= f.check_box :headset %>
+                <%= f.label :headset, "Headset" %>
+              </div>
+              <div class="formbold-checkbox-flex">
+                <%= f.check_box :mobile %>
+                <%= f.label :mobile, "Mobile" %>
+              </div>
+              <div class="formbold-checkbox-flex">
+                <%= f.check_box :bag %>
+                <%= f.label :bag, "Bag" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :experience, class: "formbold-form-label" %>
+              <%= f.text_field :experience, placeholder: "Enter experience", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :account_holder_name, class: "formbold-form-label" %>
+              <%= f.text_field :account_holder_name, placeholder: "Enter account holder name", class: "formbold-form-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :account_number, class: "formbold-form-label" %>
+              <%= f.text_field :account_number, placeholder: "Enter account number", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :bank_name, class: "formbold-form-label" %>
+              <%= f.text_field :bank_name, placeholder: "Enter bank name", class: "formbold-form-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :branch, class: "formbold-form-label" %>
+              <%= f.text_field :branch, placeholder: "Enter branch", class: "formbold-form-input" %>
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div class="form-group">
+              <%= f.label :ifsc_code, class: "formbold-form-label" %>
+              <%= f.text_field :ifsc_code, placeholder: "Enter IFSC code", class: "formbold-form-input" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formbold-form-btn-wrapper">
+        <%= button_tag "Back", class: "formbold-back-btn", onclick: "history.back()" %>
+        <%= f.submit "Submit", class: "formbold-btn", id: 'next_btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>

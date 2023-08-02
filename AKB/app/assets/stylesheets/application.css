@@ -1,0 +1,204 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  .navbar {
+    background: #d2dde5 !important;
+  }
+  .hero {
+    /* background-image:linear-gradient(180deg, rgb(255, 255, 255) 0, rgba(255, 255, 255, 0) 100%),url("https://html.liviucerchez.com/crowdinvest/tmp/sample-header1.jpg"); */
+    background-image: url("hero.jpg");
+    height: 100vh;
+    background-size: cover;
+  }
+  
+  .hero h1 {
+    font-weight: 600;
+    font-size: 4rem;
+    color: #474747;
+  }
+  .hero p {
+    font-size: 2rem;
+    color: #476627;
+  }
+  
+  .hero button {
+    padding: 10px;
+    border: #006566 2px solid;
+    background: #006566;
+    border-radius: 28px;
+  }
+  
+  .hero button:hover {
+    border: 2px solid #006566;
+    color: #006566;
+    background: transparent;
+  }
+  
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .inner-feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .inner-feature h2 {
+    font-size: 50px;
+    font-weight: 100;
+    color: #476627;
+  }
+  .inner-feature p {
+    font-size: 25px;
+    font-weight: 200;
+  }
+  .inner-feature button:hover {
+    background: #476627;
+    border: #476627;
+    color: #fff;
+  }
+  .sign-up {
+    background: url(dashboard.jpg);
+    height: 100vh;
+  }
+  
+  .login {
+    height: 100vh;
+  }
+  .login-bg {
+    background: url(dashboard.jpg);
+    background-repeat: no-repeat;
+  }
+  .dashboard {
+    padding-top: 12rem !important;
+  }
+  .history {
+    padding-top: 6rem !important;
+    height: 100vh;
+  }
+  
+  .profile {
+    padding-top: 6rem !important;
+  }
+  .history-bg {
+    background-image: url(light-gray-texture-background.jpg);
+    background-size: cover;
+    padding-top: 2rem !important;
+  
+    /* height: 100vh; */
+  }
+  .profile {
+    padding-top: 8rem !important;
+    background-image: url(pastel-blue-vignette-concrete-textured-background.jpg);
+    /* height: 100vh; */
+  }
+  
+  .dash-bg {
+    background-image: url("abstract-background-illustration-watercolor-blue-green.jpg");
+    background-size: cover;
+    /* background-size: auto; */
+    background-repeat: repeat-y !important;
+  }
+  .dw-box {
+    margin-top: 6rem !important;
+  }
+  
+  .b2b {
+    background-image: url(spills-blue-green-translucent-dye.jpg);
+    background-size: cover;
+  }
+  @media screen and (max-width: 480px) {
+    .hero {
+      padding-left: 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .hero p {
+      font-size: 1.6rem;
+    }
+    /* .dashboard {
+          padding-top: 1rem !important;
+      } */
+  }
+  @media screen and (max-width: 768px) {
+    .dashboard {
+      padding-top: 6rem !important;
+    }
+  
+    .history {
+      padding-top: 3rem !important;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .dashboard {
+      /* padding-top: 6rem !important; */
+      height: 100vh;
+    }
+    .profile {
+      height: 100vh;
+    }
+  }
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%),
+      0 2px 6px 0 rgb(206 206 238 / 54%);
+  }
+  .bg-gradient-scooter {
+    background: #17ead9;
+    background: -webkit-linear-gradient(45deg, #17ead9, #6078ea) !important;
+    background: linear-gradient(45deg, #17ead9, #6078ea) !important;
+  }
+  .widgets-icons-2 {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    font-size: 27px;
+    border-radius: 10px;
+  }
+  .rounded-circle {
+    border-radius: 50% !important;
+  }
+  .text-white {
+    color: #fff !important;
+  }
+  .ms-auto {
+    margin-left: auto !important;
+  }
+  .bg-gradient-bloody {
+    background: #f54ea2;
+    background: -webkit-linear-gradient(45deg, #f54ea2, #ff7676) !important;
+    background: linear-gradient(45deg, #f54ea2, #ff7676) !important;
+  }
+  
+  .bg-gradient-ohhappiness {
+    background: #00b09b;
+    background: -webkit-linear-gradient(45deg, #00b09b, #96c93d) !important;
+    background: linear-gradient(45deg, #00b09b, #96c93d) !important;
+  }
+  
+  .bg-gradient-blooker {
+    background: #ffdf40;
+    background: -webkit-linear-gradient(45deg, #ffdf40, #ff8359) !important;
+    background: linear-gradient(45deg, #ffdf40, #ff8359) !important;
+  }
+  

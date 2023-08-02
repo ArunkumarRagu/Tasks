@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h2{
+  text-align: center;
+  padding-top: 30px;
+}
+
+.formbold-main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.formbold-form-wrapper {
+  margin: 0 auto;
+  max-width: 850px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formbold-steps {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #DDE3EC;
+}
+
+.formbold-steps ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.formbold-steps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #536387;
+}
+
+.formbold-steps li span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DDE3EC;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #536387;
+}
+
+.formbold-steps li.active {
+  color: #07074D;
+}
+
+.formbold-steps li.active span {
+  background: #6A64F1;
+  color: #FFFFFF;
+}
+
+.formbold-input-flex {
+  /* display: flex; */
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.formbold-form-input {
+  width: 100%; /* For mobile and tablet */
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #DDE3EC;
+  background: #FFFFFF;
+  font-weight: 500;
+  font-size: 14px;
+  color: #536387;
+  outline: none;
+  resize: none;
+}
+
+.formbold-form-input:focus {
+  border-color: #6a64f1;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.formbold-form-label {
+  color: #07074D;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.formbold-form-confirm {
+  border-bottom: 1px solid #DDE3EC;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.formbold-form-confirm p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #536387;
+  margin-bottom: 20px;
+}
+
+.formbold-form-confirm > div {
+  /* display: flex; */
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.formbold-confirm-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #FFFFFF;
+  border: 0.5px solid #DDE3EC;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #536387;
+  cursor: pointer;
+  padding: 8px 15px;
+  transition: all .3s ease-in-out;
+}
+
+.formbold-confirm-btn.active {
+  background: #6A64F1;
+  color: #FFFFFF;
+}
+
+.formbold-form-step-1,
+.formbold-form-step-2,
+.formbold-form-step-3 {
+  display: none;
+}
+
+.formbold-form-step-1.active,
+.formbold-form-step-2.active,
+.formbold-form-step-3.active {
+  display: block;
+}
+
+.formbold-form-btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.formbold-back-btn {
+  cursor: pointer;
+  background: #FFFFFF;
+  border: none;
+  color: #07074D;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.formbold-back-btn.active {
+  display: block;
+}
+
+.formbold-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 8px 15px;
+  border: none;
+  font-weight: 500;
+  background-color: #6A64F1;
+  color: white;
+  cursor: pointer;
+}
+
+.formbold-btn:hover {
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* For mobile devices */
+@media (max-width: 576px) {
+  .formbold-input-flex > div {
+    width: 100%;
+  }
+}
+
+/* For tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+  .formbold-input-flex {
+    gap: 20px;
+  }
+}
+
+/* For desktop and larger screens */
+@media (min-width: 992px) {
+  .formbold-input-flex {
+    gap: 30px;
+  }
+}
+
+.main-bg{
+  background-image: url('home1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.home .search{
+  padding:20px 80px 20px 30px;
+  border-radius:  999em 40px 40px 999em;
+  /* border-radius: 50px; */
+}
+.main-bg .button:nth-child(1){
+  background-color: green;
+  color:#fff;
+}
+.main-bg .button:nth-child(2){
+  background-color: red;
+}
+.search-btn{
+  padding:22px 30px;
+  background-color: #6A64F1;
+  font-size: 18px;
+  color: #fff;
+  border-radius:   40px 999em 999em 40px ;
+
+}
+
+/* app/assets/stylesheets/custom.css */
+
+/* Form wrapper styles */
+.form-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Form heading styles */
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form input styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Form submit button styles */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Form error message styles */
+.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* Form success message styles */
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* Form links styles */
+.form-links {
+  text-align: center;
+}
+
+.form-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: red; /* Set the text color to red */
+  font-size: 14px; /* Set the font size to 14 pixels */
+  font-weight: bold; /* Set the font weight to bold */
+}
+
+/* Optionally, you can add additional styling to differentiate the error message appearance */
+

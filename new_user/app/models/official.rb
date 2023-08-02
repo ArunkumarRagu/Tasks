@@ -1,0 +1,2 @@
+class Official < ApplicationRecord
+end

@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  door_number: MyString
+  floor_number: MyString
+  building_name: MyString
+  street_name: MyString
+  area: MyString
+  village: MyString
+  town: MyString
+  city: MyString
+  pincode: MyString
+  landmark: MyString
+  district: MyString
+  state: MyString
+  country: MyString
+  address_type: MyString
+
+two:
+  door_number: MyString
+  floor_number: MyString
+  building_name: MyString
+  street_name: MyString
+  area: MyString
+  village: MyString
+  town: MyString
+  city: MyString
+  pincode: MyString
+  landmark: MyString
+  district: MyString
+  state: MyString
+  country: MyString
+  address_type: MyString

@@ -1,0 +1,35 @@
+<div class="main-bg ">
+<div class="d-flex justify-content-end container ">
+<a href="<%= personal_path %>" class="formbold-back-btn btn btn-success button mt-4">Add User</a>
+<%= button_to "Sign Out", destroy_user_session_path, method: :delete,class: "formbold-back-btn btn button mt-4 mx-4" %> 
+
+</div>
+<%= form_tag(search_value_path, method: :get, class: "search-form") do %>
+<div class="d-flex align-items-center justify-content-center flex-row home" style="height:60vh;">
+<div>   
+    <%= text_field_tag(:query, params[:query], class: "form-control search", placeholder: "Search") %>    
+</div>
+<div>
+<%= submit_tag('Search', class: "formbold-back-btn btn btn-success search-btn") %>
+</div>
+</div>
+<%end%>
+  <div class=" text-dark text-center">
+    <% if @result.any? %>
+      <h3>Search Results:</h3>
+      <ul>
+        <% @result.each do |result| %>
+          <li style="list-style:none;">
+            <strong>Company:</strong> <%= result['company'].first %>
+            <br>
+            <strong>Role:</strong> <%= result['role'].first %>
+          </li>
+        <% end %>
+      </ul>
+      <%else%>
+        <p>No results found.</p>
+    <% end %>
+  </div>
+</div>
+
+

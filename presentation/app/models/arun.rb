@@ -1,0 +1,2 @@
+class Arun < ApplicationRecord
+end
