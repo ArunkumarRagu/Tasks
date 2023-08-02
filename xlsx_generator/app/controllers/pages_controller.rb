@@ -1,6 +1,5 @@
 # app/controllers/pages_controller.rb
 
-require 'spreadsheet'
 
 class PagesController < ApplicationController
   def home

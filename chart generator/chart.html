@@ -2,266 +2,191 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chart Generator</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: sans-serif;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
 
-    }
+        }
 
-    .chartMenu {
-      width: 100vw;
-      height: 40px;
-      background: #1A1A1A;
-      color: rgba(54, 162, 235, 1);
-      text-align: center;
-    }
+        .chartMenu {
+            width: 100vw;
+            height: 40px;
+            background: #1A1A1A;
+            color: rgba(54, 162, 235, 1);
+            text-align: center;
+        }
 
-    .chartMenu p {
-      padding: 10px;
-      font-size: 20px;
-    }
+        .chartMenu p {
+            padding: 10px;
+            font-size: 20px;
+        }
 
-    .chartCard {
-      width: 100vw;
-      height: calc(100vh - 40px);
-      /* margin-top: 30p; */
-      /* background: rgba(54, 162, 235, 0.2); */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .chartCard {
+            width: 100vh;
+            /* height: calc(100vh - 40px); */
+            /* margin-top: 30p; */
+            /* background: rgba(54, 162, 235, 0.2); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .chartBox {
-      width: 700px;
-      padding: 20px;
-      border-radius: 20px;
-      border: solid 3px rgba(54, 162, 235, 1);
-      background: white;
-    }
+        .chartBox {
+            width: 700px;
+            padding: 20px;
+            border-radius: 20px;
+            border: solid 3px rgba(54, 162, 235, 1);
+            background: white;
+        }
 
-    .bg {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: rgba(54, 162, 235, 0.2);
-    }
+        .bg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(54, 162, 235, 0.2);
+        }
 
-    .input {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 50%;
-    }
+        .input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+        }
 
-    .input input,
-    select {
-      width: 50%;
-      margin-top: 5px;
-      padding: 8px;
-      border-radius: 15px;
-      border: 2px solid #222;
-    }
+        .input input {
+            width: 50%;
+            margin-top: 5px;
+            padding: 8px;
+            border-radius: 15px;
+            border: 2px solid #222;
+        }
 
-    .input input[type=submit] {
-      background-color: rgba(54, 162, 235, 1);
-      border: none;
-    }
+        .input input[type=submit] {
+            background-color: rgba(54, 162, 235, 1);
+            border: none;
+        }
 
-    .aggreg {
-      display: none;
-    }
+        @media screen and (max-width:920px) {
+            .bg {
+                flex-direction: column;
+            }
 
-    .aggreg p {
-      margin: 10px 5px;
-      /* margin-right: 20px; */
-    }
-
-    .aggreg span {
-      color: rgb(4, 102, 102);
-    }
-
-    @media screen and (max-width:920px) {
-      .bg {
-        flex-direction: column;
-      }
-
-      .chartCard {
-        margin-top: 100px;
-      }
-    }
-  </style>
+            .chartCard {
+                margin-top: 100px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="chartMenu">
-    <p>Chart Generator</p>
-  </div>
-  <div class="bg">
-    <div class="input">
-      <input type="text" id="title" placeholder="Enter the Title">
-      <select name="charts" id="chartlist">
-        <option value="bar">Bar Chart</option>
-        <option value="line">Line Chart</option>
-        <option value="pie">Pie Chart</option>
-        <option value="bubble">Bubble Chart</option>
-        <option value="radar">Radar Chart</option>
-      </select>
-      <input type="number" id="value1" placeholder="Monday">
-      <input type="number" id="value2" placeholder="Tuesday">
-      <input type="number" id="value3" placeholder="Wednesday">
-      <input type="number" id="value4" placeholder="Thursday">
-      <input type="number" id="value5" placeholder="Friday">
-      <input type="number" id="value6" placeholder="Saturday">
-      <input type="number" id="value7" placeholder="Sunday">
-      <input type="submit" id="value7" onclick="update()" value="Update">
+    <div class="chartMenu">
+        <p>Chart Generator</p>
     </div>
-    <div class="chartCard">
-      <div class="chartBox">
-        <canvas id="myChart"></canvas>
-        <div class="aggreg" id="agg">
-          <p>Mean : <span id="mean"></span></p>
-          <p>Median : <span id="median"></span></p>
-          <p>Sum : <span id="sum"></span></p>
-          <p>Min : <span id="min"></span></p>
-          <p>Max : <span id="max"></span></p>
+    <div class="bg">
+        <div class="input">
+            <input type="text" id="title" placeholder="Enter the Title">
+            <input type="number" id="value1" placeholder="Monday">
+            <input type="number" id="value2" placeholder="Tuesday">
+            <input type="number" id="value3" placeholder="Wednesday">
+            <input type="number" id="value4" placeholder="Thursday">
+            <input type="number" id="value5" placeholder="Friday">
+            <input type="number" id="value6" placeholder="Saturday">
+            <input type="number" id="value7" placeholder="Sunday">
+            <input type="submit" id="value7" onclick="update()" value="Update">
         </div>
-      </div>
+        <div class="chartCard">
+            <div class="chartBox">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-  <script>
-    // setup 
-    const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Weekly Sales',
-        data: [],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 1
-      }]
-    };
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script>
+        // setup 
+        const data = {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Weekly Sales',
+                data: [],
+                backgroundColor: [
+                    'rgba(255, 26, 104, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(0, 0, 0, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 26, 104, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(0, 0, 0, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
 
-    // config 
-    const config = {
-      type: 'bar',
-      data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+        // config 
+        const config = {
+            type: 'bar',
+            data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // render init block
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+        // function updateChart(barvalue1){
+        //     console.log(barvalue1.value);
+        //     myChart.config.data.datasets[0].data.push(barvalue1.value);
+        //     myChart.update();
+        // }
+        function update() {
+            const title = document.getElementById('title');
+            const bar1 = document.getElementById('value1');
+            const bar2 = document.getElementById('value2');
+            const bar3 = document.getElementById('value3');
+            const bar4 = document.getElementById('value4');
+            const bar5 = document.getElementById('value5');
+            const bar6 = document.getElementById('value6');
+            const bar7 = document.getElementById('value7');
+            myChart.data.datasets[0].data.push(bar1.value, bar2.value, bar3.value, bar4.value, bar5.value, bar6.value, bar7.value,)
+            myChart.data.datasets[0].label = title.value;
+            myChart.update();
+            console.log(bar1.value);
+            console.log(bar2.value);
+            console.log(bar3.value);
+            console.log(bar4.value);
+            console.log(bar5.value);
+            console.log(bar6.value);
+            console.log(bar7.value);
+            console.log(title.value);
         }
-      }
-    };
-
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-
-    function update() {
-      const title = document.getElementById('title');
-      const chartlist = document.getElementById('chartlist');
-      const bar1 = document.getElementById('value1');
-      const bar2 = document.getElementById('value2');
-      const bar3 = document.getElementById('value3');
-      const bar4 = document.getElementById('value4');
-      const bar5 = document.getElementById('value5');
-      const bar6 = document.getElementById('value6');
-      const bar7 = document.getElementById('value7');
-      myChart.data.datasets[0].data.push(bar1.value, bar2.value, bar3.value, bar4.value, bar5.value, bar6.value, bar7.value,);
-      myChart.data.datasets[0].label = title.value;
-      myChart.config.type = chartlist.value;
-      document.getElementById("agg").style.display = "flex";
-      myChart.update();
-
-      document.getElementById('min').innerHTML = findMin(data.datasets[0].data);
-      function findMin(arr) {
-        let min = arr[0];
-        for (let i = 1; i < arr.length; i++) {
-          if (arr[i] < min) {
-            min = arr[i];
-          }
-        }
-        return min;
-      }
-
-      document.getElementById('max').innerHTML = findMax(data.datasets[0].data);
-      function findMax(arr) {
-        let max = arr[0];
-        for (let i = 1; i < arr.length; i++) {
-          if (arr[i] > max) {
-            max = arr[i];
-          }
-        }
-        return max;
-      }
-
-      document.getElementById('mean').innerHTML = findMean(data.datasets[0].data);
-      function findMean(arr) {
-        let sum = 0;
-        for (let i = 0; i < arr.length; i++) {
-          const num = parseInt(arr[i], 10);
-          if (!isNaN(num)) {
-            sum += num;
-          }
-        }
-        return sum / arr.length;
-      }
-
-      document.getElementById('median').innerHTML = findMedian(data.datasets[0].data);
-      function findMedian(arr) {
-        const sortedArr = arr.slice().sort((a, b) => a - b);
-        const mid = Math.floor(sortedArr.length / 2);
-
-        if (sortedArr.length % 2 === 0) {
-          return (sortedArr[mid - 1] + sortedArr[mid]) / 2;
-        } else {
-          return sortedArr[mid];
-        }
-      }
-
-      document.getElementById('sum').innerHTML = findSum(data.datasets[0].data);
-      function findSum(arr) {
-        let sum = 0;
-        for (let i = 0; i < arr.length; i++) {
-          const num = parseInt(arr[i], 10);
-          if (!isNaN(num)) {
-            sum += num;
-          }
-        }
-        return sum;
-      }
-    }
-
-  </script>
-  </style>
+        // Instantly assign Chart.js version
+        const chartVersion = document.getElementById('chartVersion');
+        chartVersion.innerText = Chart.version;
+    </script>
+    </style>
 </body>
 
 </html>
