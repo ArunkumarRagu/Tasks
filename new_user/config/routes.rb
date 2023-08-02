@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'official', to: 'registration#official'
   post 'official', to: 'registration#create_official'
   
-  get 'registration/index', to: 'registration#index', as: :search_value
+  get 'search', to: 'registration#new_search', as: :search_value
 
 
 end

@@ -1,14 +1,21 @@
 class RegistrationController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! ,except: [:personal]
   def index
-    if params[:query].present?
-      @result = search(params[:query])
+    # session.clear
+    @result = []
+  end
+
+  def new_search
+    user_id = params[:user_id]
+    @detail_type = params[:detail_type]
+    if params[:user_id].present?
+      @detail_value = search(params[:user_id],params[:detail_type])
+      puts @detail_value
     else
       @result = []
     end
-    session.clear
+    render :index
   end
-
   def personal
     @personal = Personal.new(session[:personal] || {})
   end
@@ -60,9 +67,9 @@ class RegistrationController < ApplicationController
               ])
           solr.commit
 
-      session[:form_data] = nil
-      session[:address_data] = nil
-      session[:official_data] = nil
+      session[:personal] = nil
+      session[:address] = nil
+      session[:offical] = nil
 
           redirect_to root_path, notice: "Form submitted successfully!"
         else
@@ -75,13 +82,27 @@ class RegistrationController < ApplicationController
 
 
 
-  def search(query)
+  def search(user_id,detail_type)
+    user_id = params[:user_id]
+    detail_type = params[:detail_type]
+
+    # Fetch the user details from Solr
     solr = RSolr.connect(url: 'http://localhost:8983/solr/user_management')
-    response = solr.get('select', params: { q:query})
+    response = solr.get('select', params: { q: "id:#{user_id}" })
+    # puts response
     results = response['response']['docs']
-    return results
+    @user_details = results.first if results.any?
+    # Check if the user exists and if the detail_type is valid
+    if @user_details && @user_details.key?(detail_type)
+      @detail_value = @user_details[detail_type]
+    else
+      @detail_value = "Invalid detail type or user not found."
+    end
+    return @detail_value
   rescue RSolr::Error::ConnectionRefused => e
-    return []
+    @user_details = nil
+    @detail_value = "Error connecting to Solr."
+  end
   end
   
   private
@@ -108,5 +129,4 @@ def official_params
     :branch, :ifsc_code)
 end
 
-end
 

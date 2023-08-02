@@ -24,6 +24,11 @@
           <div class="form-group">
             <%= f.label :firstname, class: "formbold-form-label" %>
             <%= f.text_field :firstname, placeholder: "Andrio", class: "formbold-form-input" %>
+            <% if @personal.errors[:firstname].any? %>
+                <div class="error">
+                  <%= @personal.errors[:firstname].first %>
+                </div>
+              <% end %> 
           </div>
           <div class="form-group">
             <%= f.label :lastname, class: "formbold-form-label" %>
@@ -39,7 +44,7 @@
           <div class="form-group">
             <%= f.label :phone, class: "formbold-form-label" %>
             <%= f.text_field :phone, placeholder: "123-456-7890", class: "formbold-form-input" %>
-              <%# <% if @personal.errors[:phone].any? %>
+              <% if @personal.errors[:phone].any? %>
                 <div class="error">
                   <%= @personal.errors[:phone].first %>
                 </div>
@@ -121,11 +126,11 @@
           <div class="form-group">
             <%= f.label :username, class: "formbold-form-label" %>
             <%= f.text_field :username, class: "formbold-form-input" %>
-          <%# <% if @personal.errors[:username].any? %>
+          <% if @personal.errors[:username].any? %>
             <div class="error">
                 <%= @personal.errors.full_messages_for(:username).first %>
               </div>
-          <% end %> %>
+          <% end %>
           </div>
         </div>
 

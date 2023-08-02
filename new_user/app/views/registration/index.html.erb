@@ -7,24 +7,22 @@
 <%= form_tag(search_value_path, method: :get, class: "search-form") do %>
 <div class="d-flex align-items-center justify-content-center flex-row home" style="height:60vh;">
 <div>   
-    <%= text_field_tag(:query, params[:query], class: "form-control search", placeholder: "Search") %>    
+    <%= text_field_tag(:user_id, params[:user_id], class: "form-control search", placeholder: "Search") %>    
 </div>
+ <br>
 <div>
-<%= submit_tag('Search', class: "formbold-back-btn btn btn-success search-btn") %>
+<%= submit_tag('Search', class: "formbold-back-btn btn btn-success search-btn ") %>
+</div>
+<div>   
+    <%= text_field_tag(:detail_type, params[:detail_type], class: "form-control mx-5 dtl_type", placeholder: "Search") %>    
 </div>
 </div>
 <%end%>
   <div class=" text-dark text-center">
-    <% if @result.any? %>
+    <% if @detail_value %>
       <h3>Search Results:</h3>
       <ul>
-        <% @result.each do |result| %>
-          <li style="list-style:none;">
-            <strong>Company:</strong> <%= result['company'].first %>
-            <br>
-            <strong>Role:</strong> <%= result['role'].first %>
-          </li>
-        <% end %>
+          <p><strong><%= @detail_type %>:</strong> <%= @detail_value %></p>
       </ul>
       <%else%>
         <p>No results found.</p>
