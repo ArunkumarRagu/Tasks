@@ -1,7 +1,7 @@
 <h2>Registration Form</h2>
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper">
-    <%= form_with(model: @official,url: official_path, local: true) do |f| %>
+    <%= form_with(model: @official,url: official_details_path, local: true) do |f| %>
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <div class="formbold-steps">
         <ul>

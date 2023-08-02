@@ -33,7 +33,7 @@ class RegistrationController < ApplicationController
     
     if @personal.valid?
       session[:personal] = personal_params
-      redirect_to address_path
+      redirect_to address_details_path
     else
       render :personal
     end
@@ -44,7 +44,7 @@ class RegistrationController < ApplicationController
 
     if @address.valid?
       session[:address] = address_params
-      redirect_to official_path
+      redirect_to official_details_path
     else
       render :address
     end

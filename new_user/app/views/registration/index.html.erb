@@ -1,28 +1,28 @@
 <div class="main-bg ">
 <div class="d-flex justify-content-end container ">
-<a href="<%= personal_path %>" class="formbold-back-btn btn btn-success button mt-4">Add User</a>
+<a href="<%= personal_details_path %>" class="formbold-back-btn btn btn-success button mt-4">Add User</a>
 <%= button_to "Sign Out", destroy_user_session_path, method: :delete,class: "formbold-back-btn btn button mt-4 mx-4" %> 
 
 </div>
 <%= form_tag(search_value_path, method: :get, class: "search-form") do %>
-<div class="d-flex align-items-center justify-content-center flex-row home" style="height:60vh;">
+<div class="d-flex align-items-center justify-content-center flex-row home" style="height:50vh;">
 <div>   
-    <%= text_field_tag(:user_id, params[:user_id], class: "form-control search", placeholder: "Search") %>    
+    <%= text_field_tag(:user_id, params[:user_id], class: "form-control  dtl_type", placeholder: "Enter Id") %>    
 </div>
- <br>
+<div>   
+    <%= text_field_tag(:detail_type, params[:detail_type], class: "form-control search mx-3", placeholder: "Enter the Detail type") %>    
+</div>
 <div>
 <%= submit_tag('Search', class: "formbold-back-btn btn btn-success search-btn ") %>
 </div>
-<div>   
-    <%= text_field_tag(:detail_type, params[:detail_type], class: "form-control mx-5 dtl_type", placeholder: "Search") %>    
-</div>
+
 </div>
 <%end%>
   <div class=" text-dark text-center">
     <% if @detail_value %>
       <h3>Search Results:</h3>
       <ul>
-          <p><strong><%= @detail_type %>:</strong> <%= @detail_value %></p>
+          <p><strong><%= @detail_type.capitalize %>:</strong> <%= @detail_value.first.gsub(/[\[\]""]/, '') %></p>
       </ul>
       <%else%>
         <p>No results found.</p>

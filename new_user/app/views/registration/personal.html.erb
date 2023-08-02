@@ -1,7 +1,7 @@
 <h2>Registration Form</h2>
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper">
-    <%= form_with(model: @personal, url: personal_path, local: true) do |f| %>
+    <%= form_with(model: @personal, url: personal_details_path, local: true) do |f| %>
       <div class="formbold-steps">
         <ul>
           <li class="formbold-step-menu1 active">
@@ -24,12 +24,7 @@
           <div class="form-group">
             <%= f.label :firstname, class: "formbold-form-label" %>
             <%= f.text_field :firstname, placeholder: "Andrio", class: "formbold-form-input" %>
-            <% if @personal.errors[:firstname].any? %>
-                <div class="error">
-                  <%= @personal.errors[:firstname].first %>
-                </div>
-              <% end %> 
-          </div>
+
           <div class="form-group">
             <%= f.label :lastname, class: "formbold-form-label" %>
             <%= f.text_field :lastname, placeholder: "Dolee", class: "formbold-form-input" %>
@@ -43,12 +38,7 @@
           </div>
           <div class="form-group">
             <%= f.label :phone, class: "formbold-form-label" %>
-            <%= f.text_field :phone, placeholder: "123-456-7890", class: "formbold-form-input" %>
-              <% if @personal.errors[:phone].any? %>
-                <div class="error">
-                  <%= @personal.errors[:phone].first %>
-                </div>
-              <% end %> 
+            <%= f.text_field :phone, required: true, maxlength: 18, oninput: 'formatPhoneNumber(this)'class: "formbold-form-input" %>
           </div>
         </div>
 
@@ -126,11 +116,6 @@
           <div class="form-group">
             <%= f.label :username, class: "formbold-form-label" %>
             <%= f.text_field :username, class: "formbold-form-input" %>
-          <% if @personal.errors[:username].any? %>
-            <div class="error">
-                <%= @personal.errors.full_messages_for(:username).first %>
-              </div>
-          <% end %>
           </div>
         </div>
 

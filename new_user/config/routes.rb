@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
 
-  get 'personal', to: 'registration#personal'
-  post 'personal', to: 'registration#create_personal'
+  get 'personal_details', to: 'registration#personal'
+  post 'personal_details', to: 'registration#create_personal'
   
-  get 'address', to: 'registration#address'
-  post 'address', to: 'registration#create_address'
+  get 'address_details', to: 'registration#address'
+  post 'address_details', to: 'registration#create_address'
   
-  get 'official', to: 'registration#official'
-  post 'official', to: 'registration#create_official'
+  get 'official_details', to: 'registration#official'
+  post 'official_details', to: 'registration#create_official'
   
   get 'search', to: 'registration#new_search', as: :search_value
 
